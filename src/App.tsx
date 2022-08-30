@@ -20,7 +20,8 @@ function App() {
 
         dispatch(todoActions.addTodo({
             id: Date.now(),
-            todo: value
+            todo: value,
+            completed: false
         }))
 
         setValue('')
@@ -46,10 +47,11 @@ function App() {
                 <div className="flex flex-col w-1/2">
                     {todos.map((item, index) => (
                         <TodoItem
-                            value={item.todo}
+                            todo={item.todo}
                             key={item.id}
                             count={index + 1}
                             id={item.id}
+                            completed={item.completed}
                         />
                     ))}
                 </div>
